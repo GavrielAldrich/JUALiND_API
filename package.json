@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Main"
+    "start": "babel-node Main.js"
   },
   "keywords": [],
   "author": "",
@@ -22,5 +22,11 @@
     "express-session": "^1.18.0",
     "http-proxy-middleware": "^3.0.0",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.24.9",
+    "@babel/node": "^7.24.8",
+    "@babel/preset-env": "^7.24.8"
   }
 }
