@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { db } from "../utils/db.js";
 
 export const userSession = (req, res) => {
@@ -28,6 +28,7 @@ export const userRegister = async (req, res) => {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(userPassword, salt);
 
+    
     db.query(
       "INSERT INTO users (email, username, password, phone_number) VALUES (?, ?, ?, ?)",
       [lowerCasedEmail, lowerCasedUsername, hashedPassword, phone_number],

@@ -31,7 +31,7 @@ const upload = multer({
 // Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:3000", // Adjust this to match your React app's URL
+    origin: "http://103.157.26.66:3000", // Adjust this to match your React app's URL
     credentials: true, // Allow cookies to be sent back and forth
   })
 );
@@ -48,6 +48,7 @@ app.use(
   })
 );
 
+app.use(limiter)
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
