@@ -5,14 +5,13 @@ import cors from "cors";
 import multer from "multer";
 import { db } from "./utils/db.js";
 import limiter from "./utils/limiter.js";
-import sessionStore from "./utils/store.js";
+// import sessionStore from "./utils/store.js";
 import auth from "./routes/auth_route.js";
 import gameRouter from "./routes/games_route.js";
 import indexRouter from "./routes/index_route.js";
 import productRouter from "./routes/product_route.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import { emitWarning } from "process";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -39,12 +38,12 @@ app.use(
 app.use(
   session({
     secret: "TOPSECRETWORD",
-    store: sessionStore,
+    // store: sessionStore,
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      maxAge: 1000 * 600, // 10 minutes
-    },
+    // cookie: {
+    //   maxAge: 1000 * 600, // 10 minutes
+    // },
   })
 );
 
